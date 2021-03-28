@@ -48,7 +48,9 @@ input {
 #join,
 #leave,
 #transcribe,
-#stop-transcribe {
+#stop-transcribe,
+#note,
+#stop-note {
   background-color: #0C9DFD;
   color: white;
   border-radius: 5px;
@@ -57,7 +59,9 @@ input {
 #join:hover,
 #leave:hover,
 #transcribe:hover,
-#stop-transcribe:hover {
+#stop-transcribe:hover,
+#note:hover,
+#stop-note:hover {
   background-color: rgba(2, 133, 221, 0.911);
 }
 
