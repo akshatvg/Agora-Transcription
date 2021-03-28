@@ -46,14 +46,18 @@ input {
 }
 
 #join,
-#leave {
+#leave,
+#transcribe,
+#stop-transcribe {
   background-color: #0C9DFD;
   color: white;
   border-radius: 5px;
 }
 
 #join:hover,
-#leave:hover {
+#leave:hover,
+#transcribe:hover,
+#stop-transcribe:hover {
   background-color: rgba(2, 133, 221, 0.911);
 }
 

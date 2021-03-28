@@ -1,5 +1,9 @@
-// Create Agora client
+// Create Agora client and JavaScript Speech Recognition Init
 var client = AgoraRTC.createClient({ mode: "rtc", codec: "vp8" });
+var SpeechRecognition = window.webkitSpeechRecognition || window.speechRecognition;
+var recognition = new SpeechRecognition();
+var Content = "";
+recognition.continuous = true;
 
 var localTracks = {
   videoTrack: null,
@@ -40,6 +44,7 @@ $("#join-form").submit(async function (e) {
     console.error(error);
   } finally {
     $("#leave").attr("disabled", false);
+    $("#transcribe").attr("disabled", false);
   }
 })
 
@@ -48,11 +53,9 @@ $("#leave").click(function (e) {
 })
 
 async function join() {
-
   // Add event listener to play remote tracks when remote user publishes
   client.on("user-published", handleUserPublished);
   client.on("user-unpublished", handleUserUnpublished);
-
   // Join a channel and create local tracks, we can use Promise.all to run them concurrently
   [options.uid, localTracks.audioTrack, localTracks.videoTrack] = await Promise.all([
     // Join the channel
@@ -61,11 +64,9 @@ async function join() {
     AgoraRTC.createMicrophoneAudioTrack(),
     AgoraRTC.createCameraVideoTrack()
   ]);
-
   // play local video track
   localTracks.videoTrack.play("local-player");
   $("#local-player-name").text(`localVideo(${options.uid})`);
-
   // publish local tracks to channel
   await client.publish(Object.values(localTracks));
   console.log("Publish success");
@@ -90,6 +91,8 @@ async function leave() {
   $("#local-player-name").text("");
   $("#join").attr("disabled", false);
   $("#leave").attr("disabled", true);
+  $("#transcribe").attr("disabled", true);
+  $("#stop-transcribe").attr("disabled", true);
   console.log("Client leaves channel success");
 }
 
@@ -123,4 +126,35 @@ function handleUserUnpublished(user) {
   const id = user.uid;
   delete remoteUsers[id];
   $(`#player-wrapper-${id}`).remove();
+}
+
+recognition.onresult = function (event) {
+  var current = event.resultIndex;
+  var transcript = event.results[current][0].transcript;
+  Content = Content + transcript + "<br>";
+  document.getElementById("actual-text").innerHTML = "UserID(" + options.uid + "): " + Content;
+};
+
+$("#transcribe").click(function () {
+  console.log('Voice recognition is on.');
+  $("#stop-transcribe").attr("disabled", false);
+  if (Content.length) {
+    Content += ' ';
+  }
+  recognition.start();
+});
+
+$("#stop-transcribe").click(function () {
+  console.log('Voice recognition is off.');
+  recognition.stop();
+  $("#stop-transcribe").attr("disabled", true);
+});
+
+// Can't recognise voice
+recognition.onerror = function (event) {
+  if (event.error == 'no-speech') {
+    console.log('Could you please repeat? I didn\'t get what you\'re saying.');
+    recognition.stop();
+    recognition.start();
+  }
 }
