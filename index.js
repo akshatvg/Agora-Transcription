@@ -210,7 +210,7 @@ $("#stop-note").click(function () {
     var current = event.resultIndex;
     var transcript = event.results[current][0].transcript;
     noteContent = noteContent + transcript + "<br>";
-    $("#note-text").append("<b><i>UserID(" + options.uid + "):</i></b> " + noteContent);
+    $("#note-text").append("<b><i>You said: </i></b> " + noteContent);
     noteContent = '';
   };
   $("#note").attr("disabled", false);
