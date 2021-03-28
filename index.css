@@ -1,0 +1,65 @@
+.banner {
+  padding: 10px;
+  background-color: #1A0374;
+  color: white;
+}
+
+.banner-text {
+  padding: 8px 20px;
+  margin: 0;
+  font-size: 18px;
+}
+
+
+#join-form {
+  margin-top: 10px;
+}
+
+.join-info-text {
+  margin-bottom: 2px;
+}
+
+input {
+  width: 100%;
+  margin-bottom: 2px;
+}
+
+.player {
+  width: 480px;
+  height: 320px;
+}
+
+.player-name {
+  margin: 8px 0;
+}
+
+#success-alert,
+#success-alert-with-token {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .player {
+    width: 320px;
+    height: 240px;
+  }
+}
+
+#join,
+#leave {
+  background-color: #0C9DFD;
+  color: white;
+  border-radius: 5px;
+}
+
+#join:hover,
+#leave:hover {
+  background-color: rgba(2, 133, 221, 0.911);
+}
+
+.transcribed-text {
+  background: rgba(12, 157, 253, 0.897);
+  padding: 30px;
+  color: white;
+  border-radius: 15px;
+}
