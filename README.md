@@ -12,8 +12,7 @@ Transcription during Agora Video call.
 
 ![Generic badge](https://img.shields.io/badge/Agora-Transcription-orange) 
 
-#### Link for [demo](https://transcription.akshatvg.com) 
-[![Generic badge](https://img.shields.io/badge/view-demo-orange)](https://transcription.akshatvg.com)
+[![Generic badge](https://img.shields.io/badge/view-demo-purple)](https://transcription.akshatvg.com)
 
 ## Features
 
@@ -28,7 +27,7 @@ Transcription during Agora Video call.
 - [Sample Video Call App](https://github.com/AgoraIO-Community/AgoraWebSDK-NG/tree/master/Demo/basicVideoCall)
 - [Agora RTM SDK Documentation](https://docs.agora.io/en/Real-time-Messaging/API%20Reference/RTM_web/v1.0.0/index.html)
 - [RTM Quickstart Guide](https://docs.agora.io/en/Real-time-Messaging/messaging_web?platform=Web)
-- [Guided Blog](#!)
+- [Guided Blog](https://medium.com/@akshatvg/building-your-own-transcription-and-note-making-service-49bf4180e82b)
 
 ## Requirements
 
