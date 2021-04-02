@@ -2,7 +2,7 @@
 
 [![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/akshatvg/Agora-Transcription?logo=github&style=social)](https://github.com/akshatvg/) [![GitHub last commit](https://img.shields.io/github/last-commit/akshatvg/Agora-Transcription?style=social&logo=git)](https://github.com/akshatvg/) [![GitHub stars](https://img.shields.io/github/stars/akshatvg/Agora-Transcription?style=social)](https://github.com/akshatvg/Agora-Transcription/stargazers) [![GitHub forks](https://img.shields.io/github/forks/akshatvg/Agora-Transcription?style=social&logo=git)](https://github.com/akshatvg/Agora-Transcription/network)
 
-Transcription during Agora Video call.
+Web application to create personal notes or group transcribed text during video calls.
 
 <p align="center">
 <a href="https://transcription.akshatvg.com">
