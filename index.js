@@ -125,6 +125,10 @@ async function join() {
       console.log('AgoraRTM client login failure: ', err);
     });
   });
+  document.getElementById("leave").onclick = async function () {
+    console.log("Client logged out of RTM.");
+    await clientRTM.logout();
+  }
 }
 
 // Leave Function
