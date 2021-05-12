@@ -2,7 +2,7 @@
 var client = AgoraRTC.createClient({ mode: "rtc", codec: "vp8" });
 // JavaScript Speech Recognition Init
 var SpeechRecognition = window.webkitSpeechRecognition || window.speechRecognition;
-var recognition = new SpeechRecognition();
+var recognition = new webkitSpeechRecognition() || new SpeechRecognition();
 var transContent = "";
 var noteContent = "";
 recognition.continuous = true;
